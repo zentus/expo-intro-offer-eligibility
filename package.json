@@ -4,6 +4,15 @@
   "description": "Checks eligibility for App Store Introductory Offers via Storekit 2",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./build/index.js"
+    },
+    "./plugin": "./build/withExpoIntroductoryOfferEligibilityChecker.js"
+  },
+  "files": [
+    "build"
+  ],
   "scripts": {
     "build": "expo-module build",
     "clean": "expo-module clean",
@@ -15,7 +24,9 @@
     "open:ios": "xed example/ios"
   },
   "expo": {
-    "plugin": "./plugin/withExpoIntroductoryOfferEligibilityChecker"
+    "plugins": [
+      "./build/withExpoIntroductoryOfferEligibilityChecker"
+    ]
   },
   "keywords": [
     "react-native",
