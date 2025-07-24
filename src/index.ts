@@ -3,22 +3,22 @@ import { Platform } from 'react-native';
 export type EligibilityStatus = 'ELIGIBLE' | 'INELIGIBLE' | 'UNKNOWN' | 'ERROR';
 export type ProductId = string;
 
-export interface IntroEligibilityModule {
+export interface ExpoIntroductoryOfferEligibilityCheckerModule {
   checkEligibility(productIds: ProductId[]): Promise<Record<ProductId, EligibilityStatus>>;
 }
 
-let ExpoIntroductoryOfferEligibilityChecker: IntroEligibilityModule;
+let ExpoIntroductoryOfferEligibilityCheckerModule: ExpoIntroductoryOfferEligibilityCheckerModule;
 
 if (Platform.OS === 'ios') {
   const NativeModule = require('./NativeExpoIntroductoryOfferEligibilityChecker').default;
-  ExpoIntroductoryOfferEligibilityChecker = NativeModule;
+  ExpoIntroductoryOfferEligibilityCheckerModule = NativeModule;
 } else {
-  ExpoIntroductoryOfferEligibilityChecker = {
+  ExpoIntroductoryOfferEligibilityCheckerModule = {
     checkEligibility: async (_: ProductId[]) => {
-      console.warn('ExpoIntroductoryOfferEligibilityChecker is only available on iOS');
+      console.warn('ExpoIntroductoryOfferEligibilityCheckerModule is only available on iOS');
       return {};
     },
   };
 }
 
-export default ExpoIntroductoryOfferEligibilityChecker;
+export default ExpoIntroductoryOfferEligibilityCheckerModule;
