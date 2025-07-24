@@ -1,5 +1,5 @@
 {
-  "name": "expo-introductory-offer-eligibility-checker",
+  "name": "@zentus/expo-introductory-offer-eligibility-checker",
   "version": "0.1.0",
   "description": "Checks eligibility for App Store Introductory Offers via Storekit 2",
   "main": "build/index.js",
