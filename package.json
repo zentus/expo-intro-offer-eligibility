@@ -8,7 +8,7 @@
     ".": {
       "require": "./build/index.js"
     },
-    "./plugin": "./build/withExpoIntroductoryOfferEligibilityChecker.js"
+    "./plugin": "./build/plugin/withExpoIntroductoryOfferEligibilityChecker.js"
   },
   "files": [
     "build"
@@ -25,7 +25,7 @@
   },
   "expo": {
     "plugins": [
-      "./build/withExpoIntroductoryOfferEligibilityChecker"
+      "./build/plugin/withExpoIntroductoryOfferEligibilityChecker"
     ]
   },
   "keywords": [

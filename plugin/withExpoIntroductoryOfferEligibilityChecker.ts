@@ -1,7 +1,16 @@
-import { ConfigPlugin } from 'expo/config-plugins';
+import {
+  ConfigPlugin,
+  createRunOncePlugin,
+  withPlugins,
+} from '@expo/config-plugins';
+import pkg from '../package.json';
 
 const withExpoIntroductoryOfferEligibilityChecker: ConfigPlugin = config => {
-  return config;
+  return withPlugins(config, []);
 };
 
-export default withExpoIntroductoryOfferEligibilityChecker;
+export default createRunOncePlugin(
+  withExpoIntroductoryOfferEligibilityChecker,
+  pkg.name,
+  pkg.version
+);
