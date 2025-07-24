@@ -1,17 +1,17 @@
-import { Platform } from 'react-native';
+import { Platform, TurboModule } from 'react-native';
+import { TurboModuleRegistry } from 'react-native';
 
 export type EligibilityStatus = 'ELIGIBLE' | 'INELIGIBLE' | 'UNKNOWN' | 'ERROR';
 export type ProductId = string;
 
-export interface ExpoIntroductoryOfferEligibilityCheckerModule {
+export interface ExpoIntroductoryOfferEligibilityCheckerModule extends TurboModule {
   checkEligibility(productIds: ProductId[]): Promise<Record<ProductId, EligibilityStatus>>;
-}
+};
 
 let ExpoIntroductoryOfferEligibilityCheckerModule: ExpoIntroductoryOfferEligibilityCheckerModule;
 
 if (Platform.OS === 'ios') {
-  const NativeModule = require('./NativeExpoIntroductoryOfferEligibilityChecker').default;
-  ExpoIntroductoryOfferEligibilityCheckerModule = NativeModule;
+  ExpoIntroductoryOfferEligibilityCheckerModule = TurboModuleRegistry.getEnforcing('ExpoIntroductoryOfferEligibilityCheckerModule');
 } else {
   ExpoIntroductoryOfferEligibilityCheckerModule = {
     checkEligibility: async (_: ProductId[]) => {

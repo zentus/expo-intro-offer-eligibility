@@ -1,14 +1,7 @@
-import {
-  ConfigPlugin,
-  createRunOncePlugin,
-  withPlugins,
-} from '@expo/config-plugins';
+import { ConfigPlugin } from '@expo/config-plugins';
 
 const withExpoIntroductoryOfferEligibilityChecker: ConfigPlugin = config => {
-  return withPlugins(config, []);
+  return config;
 };
 
-export default createRunOncePlugin(
-  withExpoIntroductoryOfferEligibilityChecker,
-  '@zentus/expo-introductory-offer-eligibility-checker'
-);
+export default withExpoIntroductoryOfferEligibilityChecker;

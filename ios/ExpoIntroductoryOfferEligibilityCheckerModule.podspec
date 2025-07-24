@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license        = { :type => 'MIT' }
   s.author         = { 'zentus' => 'zentus@cimantra.com' }
   s.platform       = :ios, '15.0'
-  s.source         = { :git => 'https://github.com/zentus/expo-introductory-offer-eligibility-checker.git', :tag => s.version.to_s }
+  s.source         = { :path => "." }
   s.source_files   = 'ios/**/*.{h,m,mm,swift}'
   s.requires_arc   = true
   s.swift_version  = '5.0'
