@@ -1,6 +1,6 @@
 {
   "name": "@zentus/expo-introductory-offer-eligibility-checker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Checks eligibility for App Store Introductory Offers via Storekit 2",
   "main": "build/index.js",
   "types": "build/index.d.ts",
