@@ -18,7 +18,7 @@ For bare React Native projects, you must ensure that you have [installed and con
 ### Add the package to your npm dependencies
 
 ```
-npm install expo-introductory-offer-eligibility-checker
+npm install @zentus/expo-introductory-offer-eligibility-checker
 ```
 
 
