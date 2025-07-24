@@ -34,7 +34,10 @@
     "expo-introductory-offer-eligibility-checker",
     "ExpoIntroductoryOfferEligibilityChecker"
   ],
-  "repository": "https://github.com/zentus/expo-introductory-offer-eligibility-checker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zentus/expo-introductory-offer-eligibility-checker.git"
+  },
   "bugs": {
     "url": "https://github.com/zentus/expo-introductory-offer-eligibility-checker/issues"
   },
