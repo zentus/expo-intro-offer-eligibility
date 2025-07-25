@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.author         = { 'zentus' => 'zentus@cimantra.com' }
   s.source         = { git: 'https://github.com/zentus/expo-introductory-offer-eligibility-checker' }
   s.requires_arc   = true
+  s.frameworks = 'StoreKit'
 
   s.platforms      = {
     :ios => '15.1'
