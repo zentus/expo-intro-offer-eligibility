@@ -1,11 +1,31 @@
 import { requireNativeModule } from "expo-modules-core";
 
-import { ExpoIntroOfferEligibility, ProductId } from "./index.types";
+import {
+  EligibilityStatus,
+  ExpoIntroOfferEligibility,
+  ProductId,
+} from "./index.types";
 
 const nativeModule = requireNativeModule("ExpoIntroOfferEligibility");
 
-export function checkEligibility(
-  productId: ProductId,
-): ExpoIntroOfferEligibility["checkEligibility"] {
-  return nativeModule.checkEligibility(productId);
-}
+export const checkEligibility: ExpoIntroOfferEligibility["checkEligibility"] =
+  async (productIds: ProductId[]) => {
+    return nativeModule.checkEligibility(productIds);
+  };
+
+export const ELIGIBLE: EligibilityStatus = "ELIGIBLE";
+export const INELIGIBLE: EligibilityStatus = "INELIGIBLE";
+export const UNKNOWN: EligibilityStatus = "UNKNOWN";
+export const ERROR: EligibilityStatus = "ERROR";
+
+const main: ExpoIntroOfferEligibility = {
+  checkEligibility,
+  ELIGIBILITY: {
+    ELIGIBLE,
+    INELIGIBLE,
+    UNKNOWN,
+    ERROR,
+  },
+};
+
+export default main;
