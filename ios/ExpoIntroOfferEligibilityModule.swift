@@ -21,7 +21,6 @@ public class ExpoIntroOfferEligibilityModule: Module {
             let isEligible = await subscription.isEligibleForIntroOffer
             result[productId] = isEligible ? "ELIGIBLE" : "INELIGIBLE"
           } else {
-            // For iOS < 17, fallback to receipt analysis or assume unknown
             result[productId] = "UNKNOWN"
           }
         } catch {
