@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name           = 'ExpoIntroOfferEligibility'
-  s.version        = '1.0.3'
+  s.version        = '1.0.5'
   s.summary        = 'Check StoreKit 2 introductory offer eligibility from an Expo app'
   s.description    = <<-DESC
                        This module uses StoreKit 2 to check if a user is eligible
@@ -9,8 +9,7 @@ Pod::Spec.new do |s|
   s.homepage       = 'https://github.com/zentus/expo-introductory-offer-eligibility-checker'
   s.license        = { :type => 'MIT' }
   s.author         = { 'zentus' => 'zentus@cimantra.com' }
-  s.source         = { :path => "." }
-  s.source         = { :path => ".", :git: 'https://github.com/zentus/expo-introductory-offer-eligibility-checker.got' }
+  s.source         = { git: 'https://github.com/zentus/expo-introductory-offer-eligibility-checker' }
   s.requires_arc   = true
 
   s.platforms      = {
