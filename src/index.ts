@@ -2,6 +2,7 @@ import { requireNativeModule } from "expo-modules-core";
 import { Platform } from "react-native";
 
 import {
+  CheckEligibility,
   EligibilityResults,
   EligibilityStatus,
   ExpoIntroOfferEligibility,
@@ -14,39 +15,30 @@ export const INELIGIBLE: EligibilityStatus = "INELIGIBLE";
 export const UNKNOWN: EligibilityStatus = "UNKNOWN";
 export const ERROR: EligibilityStatus = "ERROR";
 
-export const checkEligibility: ExpoIntroOfferEligibility["checkEligibility"] =
-  async (productIds: ProductId[]) => {
-    if (Platform.OS === "ios") {
-      const nativeModule = requireNativeModule("ExpoIntroOfferEligibility");
-      const nativeResult: EligibilityStatus[] =
-        await nativeModule.checkEligibility(productIds);
+export const checkEligibility: CheckEligibility = async (
+  productIds: ProductId[],
+) => {
+  if (Platform.OS === "ios") {
+    const nativeModule = requireNativeModule("ExpoIntroOfferEligibility");
+    const nativeResult: EligibilityResults =
+      await nativeModule.checkEligibility(productIds);
 
-      if (nativeResult.length !== productIds.length) {
-        throw new Error(
-          `Expected ${productIds.length} eligibility results but got ${nativeResult.length}`,
-        );
-      }
-
-      const result: EligibilityResults = nativeResult.reduce(
-        (acc, status, i) => {
-          return {
-            ...acc,
-            [productIds[i]]: status,
-          };
-        },
-        {} as EligibilityResults,
+    if (Object.keys(nativeResult).length !== productIds.length) {
+      throw new Error(
+        `Expected ${productIds.length} eligibility results but got ${nativeResult.length}`,
       );
-
-      return result;
-    } else {
-      return productIds.reduce((acc, productId) => {
-        return {
-          ...acc,
-          [productId]: ERROR,
-        };
-      }, {} as EligibilityResults);
     }
-  };
+
+    return nativeResult;
+  } else {
+    return productIds.reduce((acc, productId) => {
+      return {
+        ...acc,
+        [productId]: ERROR,
+      };
+    }, {} as EligibilityResults);
+  }
+};
 
 export const isEligibleForIntroOffer: IsEligibleForIntroOffer = async (
   productId: ProductId,
