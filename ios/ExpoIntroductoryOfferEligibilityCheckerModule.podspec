@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.author         = { 'zentus' => 'zentus@cimantra.com' }
   s.platform       = :ios, '15.0'
   s.source         = { :path => "." }
-  s.source_files   = 'ios/**/*.{h,m,mm,swift}'
+  s.source_files   = '**/*.{h,m,mm,swift}'
   s.requires_arc   = true
   s.swift_version  = '5.0'
 
