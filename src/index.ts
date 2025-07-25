@@ -1,8 +1,11 @@
-import { requireNativeModule } from 'expo-modules-core';
-import { ExpoIntroOfferEligibility, ProductId } from './index.types';
+import { requireNativeModule } from "expo-modules-core";
 
-const nativeModule = requireNativeModule('ExpoIntroOfferEligibility');
+import { ExpoIntroOfferEligibility, ProductId } from "./index.types";
 
-export function checkEligibility(productId: ProductId): ExpoIntroOfferEligibility['checkEligibility'] {
-    return nativeModule.isEligible(productId);
+const nativeModule = requireNativeModule("ExpoIntroOfferEligibility");
+
+export function checkEligibility(
+  productId: ProductId,
+): ExpoIntroOfferEligibility["checkEligibility"] {
+  return nativeModule.checkEligibility(productId);
 }

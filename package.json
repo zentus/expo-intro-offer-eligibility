@@ -1,14 +1,17 @@
 {
   "name": "@zentus/expo-introductory-offer-eligibility-checker",
   "version": "1.0.3",
-  "description": "My new module",
+  "description": "Checks eligibility for App Store Introductory Offers via Storekit 2",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
+    "build",
+    "plugin",
     "ios",
+    "app.plugin.js",
     "expo-module.config.json",
-    "README.md",
-    "build"
+    "LICENSE",
+    "README.md"
   ],
   "scripts": {
     "build": "expo-module build",
@@ -18,16 +21,18 @@
     "prepare": "expo-module prepare",
     "prepublishOnly": "expo-module prepublishOnly",
     "expo-module": "expo-module",
-    "open:ios": "xed example/ios",
-    "open:android": "open -a \"Android Studio\" example/android"
+    "open:ios": "xed example/ios"
   },
   "keywords": [
     "react-native",
     "expo",
-    "@zentus/expo-introductory-offer-eligibility-checker",
-    "ExpoIntroOfferEligibility"
+    "expo-introductory-offer-eligibility-checker",
+    "ExpoIntroductoryOfferEligibilityChecker"
   ],
-  "repository": "https://github.com/zentus/expo-introductory-offer-eligibility-checker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zentus/expo-introductory-offer-eligibility-checker.git"
+  },
   "bugs": {
     "url": "https://github.com/zentus/expo-introductory-offer-eligibility-checker/issues"
   },
@@ -40,6 +45,9 @@
     "expo-module-scripts": "3.5.4",
     "expo": "51.0.37",
     "react-native": "0.74.5"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "peerDependencies": {
     "expo": "*",
