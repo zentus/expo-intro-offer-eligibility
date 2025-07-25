@@ -11,20 +11,17 @@ public class ExpoIntroOfferEligibilityModule: Module {
       for productId in productIds {
         do {
           let products = try await Product.products(for: [productId])
-          if let product = products.first,
-             let subscriptionInfo = product.subscription,
-             let eligibility = try? await subscriptionInfo.introEligibility {
-            switch eligibility {
-            case .eligible:
-              result[productId] = "ELIGIBLE"
-            case .ineligible:
-              result[productId] = "INELIGIBLE"
-            case .unknown:
-              fallthrough
-            @unknown default:
-              result[productId] = "UNKNOWN"
-            }
+          guard let product = products.first,
+                let subscription = product.subscription else {
+            result[productId] = "UNKNOWN"
+            continue
+          }
+
+          if #available(iOS 17.0, *) {
+            let isEligible = await subscription.isEligibleForIntroOffer
+            result[productId] = isEligible ? "ELIGIBLE" : "INELIGIBLE"
           } else {
+            // For iOS < 17, fallback to receipt analysis or assume unknown
             result[productId] = "UNKNOWN"
           }
         } catch {
