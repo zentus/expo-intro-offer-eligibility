@@ -3,7 +3,7 @@ export type ProductId = string;
 
 export type checkEligibility = (
   productIds: ProductId[],
-) => Promise<Record<ProductId, EligibilityStatus>>;
+) => Promise<EligibilityStatus[]>;
 
 export type ExpoIntroOfferEligibility = {
   checkEligibility: checkEligibility;
