@@ -1,11 +1,6 @@
-# expo-introductory-offer-eligibility-checker
+# @zentus/expo-introductory-offer-eligibility-checker
 
 Checks eligibility for App Store Introductory Offers via Storekit 2
-
-# API documentation
-
-- [Documentation for the latest stable release](https://docs.expo.dev/versions/latest/sdk/introductory-offer-eligibility-checker/)
-- [Documentation for the main branch](https://docs.expo.dev/versions/unversioned/sdk/introductory-offer-eligibility-checker/)
 
 # Installation in managed Expo projects
 
@@ -20,8 +15,6 @@ For bare React Native projects, you must ensure that you have [installed and con
 ```
 npm install @zentus/expo-introductory-offer-eligibility-checker
 ```
-
-
 
 ### Configure for iOS
 
