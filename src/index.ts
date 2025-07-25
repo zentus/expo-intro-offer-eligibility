@@ -2,6 +2,7 @@ import { requireNativeModule } from "expo-modules-core";
 import { Platform } from "react-native";
 
 import {
+  EligibilityResults,
   EligibilityStatus,
   ExpoIntroOfferEligibility,
   ProductId,
@@ -16,9 +17,33 @@ export const checkEligibility: ExpoIntroOfferEligibility["checkEligibility"] =
   async (productIds: ProductId[]) => {
     if (Platform.OS === "ios") {
       const nativeModule = requireNativeModule("ExpoIntroOfferEligibility");
-      return nativeModule.checkEligibility(productIds);
+      const nativeResult: EligibilityStatus[] =
+        await nativeModule.checkEligibility(productIds);
+
+      if (nativeResult.length !== productIds.length) {
+        throw new Error(
+          `Expected ${productIds.length} eligibility results but got ${nativeResult.length}`,
+        );
+      }
+
+      const result: EligibilityResults = nativeResult.reduce(
+        (acc, status, i) => {
+          return {
+            ...acc,
+            [productIds[i]]: status,
+          };
+        },
+        {} as EligibilityResults,
+      );
+
+      return result;
     } else {
-      return productIds.map(() => ERROR);
+      return productIds.reduce((acc, productId) => {
+        return {
+          ...acc,
+          [productId]: ERROR,
+        };
+      }, {} as EligibilityResults);
     }
   };
 
