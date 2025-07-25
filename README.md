@@ -40,6 +40,19 @@ import { checkEligibility } from '@zentus/expo-intro-offer-eligibility';
 checkEligibility(['my_product_id_1', 'my_product_id_2'])
     .then(result => {
         console.log(result);
+        //=> {"my_product_id_1": "ELIGIBLE", "my_product_id_2": "ELIGIBLE"}
+    });
+```
+
+Or use the simpler wrapper `isEligibleForIntroOffer`
+
+```javascript
+import { isEligibleForIntroOffer } from '@zentus/expo-intro-offer-eligibility';
+
+isEligibleForIntroOffer('my_product_id_1')
+    .then(result => {
+        console.log(result);
+        //=> true | false
     });
 ```
 

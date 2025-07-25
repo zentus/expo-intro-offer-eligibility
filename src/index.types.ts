@@ -6,7 +6,12 @@ export type CheckEligibility = (
   productIds: ProductId[],
 ) => Promise<EligibilityResults>;
 
+export type IsEligibleForIntroOffer = (
+  productId: ProductId,
+) => Promise<boolean>;
+
 export type ExpoIntroOfferEligibility = {
   checkEligibility: CheckEligibility;
+  isEligibleForIntroOffer: IsEligibleForIntroOffer;
   ELIGIBILITY: Record<EligibilityStatus, EligibilityStatus>;
 };

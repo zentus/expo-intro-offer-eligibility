@@ -5,6 +5,7 @@ import {
   EligibilityResults,
   EligibilityStatus,
   ExpoIntroOfferEligibility,
+  IsEligibleForIntroOffer,
   ProductId,
 } from "./index.types";
 
@@ -47,8 +48,16 @@ export const checkEligibility: ExpoIntroOfferEligibility["checkEligibility"] =
     }
   };
 
+export const isEligibleForIntroOffer: IsEligibleForIntroOffer = async (
+  productId: ProductId,
+) => {
+  const result = await checkEligibility([productId]).catch(() => ({}));
+  return result[productId] === ELIGIBLE;
+};
+
 const main: ExpoIntroOfferEligibility = {
   checkEligibility,
+  isEligibleForIntroOffer,
   ELIGIBILITY: {
     ELIGIBLE,
     INELIGIBLE,
