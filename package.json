@@ -7,7 +7,8 @@
   "files": [
     "ios",
     "expo-module.config.json",
-    "README.md"
+    "README.md",
+    "build"
   ],
   "scripts": {
     "build": "expo-module build",
