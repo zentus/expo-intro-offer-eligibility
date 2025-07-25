@@ -3,9 +3,9 @@ import StoreKit
 
 public class ExpoIntroOfferEligibilityModule: Module {
   public func definition() -> ModuleDefinition {
-    Name("ExpoIntroOfferEligibility")
+    Name("ExpoIntroOfferEligibilityModule")
 
-    AsyncFunction("checkEligibility") { async (productIds: [String]) throws -> [String: String] in
+    AsyncFunction("checkEligibility") { (productIds: [String]) -> [String: String] in
       var result: [String: String] = [:]
 
       for productId in productIds {

@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name           = 'ExpoIntroOfferEligibility'
+  s.name           = 'ExpoIntroOfferEligibilityModule'
   s.version        = '1.0.5'
   s.summary        = 'Check StoreKit 2 introductory offer eligibility from an Expo app'
   s.description    = <<-DESC
