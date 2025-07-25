@@ -1,9 +1,9 @@
 import ExpoModulesCore
 import StoreKit
 
-public class ExpoIntroductoryOfferEligibilityCheckerModule: Module {
+public class ExpoIntroOfferEligibilityModule: Module {
   public func definition() -> ModuleDefinition {
-    Name("ExpoIntroductoryOfferEligibilityChecker")
+    Name("ExpoIntroOfferEligibility")
 
     AsyncFunction("checkEligibility") { async (productIds: [String]) throws -> [String: String] in
       var result: [String: String] = [:]
