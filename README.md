@@ -1,25 +1,49 @@
-# @zentus/expo-introductory-offer-eligibility-checker
+# @zentus/expo-intro-offer-eligibility
 
-Checks eligibility for App Store Introductory Offers via Storekit 2
+Checks eligibility for App Store Introductory Offers via Storekit 2.
 
-# Installation in managed Expo projects
+Works on iOS 17>. On older iOS versions returns `UNKNOWN`. On Android returns `ERROR`.
 
-For [managed](https://docs.expo.dev/archive/managed-vs-bare/) Expo projects, please follow the installation instructions in the [API documentation for the latest stable release](#api-documentation). If you follow the link and there is no documentation available then this library is not yet usable within managed projects &mdash; it is likely to be included in an upcoming Expo SDK release.
-
-# Installation in bare React Native projects
-
-For bare React Native projects, you must ensure that you have [installed and configured the `expo` package](https://docs.expo.dev/bare/installing-expo-modules/) before continuing.
+# Installation
 
 ### Add the package to your npm dependencies
 
+```bash
+npm install @zentus/expo-intro-offer-eligibility@2
 ```
-npm install @zentus/expo-introductory-offer-eligibility-checker
+
+### Add the package to your Expo app config file
+
+```json
+{
+    "expo": {
+        "plugins": [
+            "@zentus/expo-intro-offer-eligibility"
+        ]
+    }
+}
 ```
 
-### Configure for iOS
+### If you're building locally, install pod
 
-Run `npx pod-install` after installing the npm package.
+```bash
+cd ios && pod install
+```
 
-# Contributing
+Then rebuild your app
 
-Contributions are very welcome! Please refer to guidelines described in the [contributing guide]( https://github.com/expo/expo#contributing).
+# Use
+
+```javascript
+import { checkEligibility } from '@zentus/expo-intro-offer-eligibility';
+
+checkEligibility(['my_product_id_1', 'my_product_id_2'])
+    .then(result => {
+        console.log(result);
+    });
+```
+
+## License
+
+[MIT](https://github.com/zentus/expo-intro-offer-eligibility/tree/main/LICENSE)
+

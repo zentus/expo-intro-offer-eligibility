@@ -6,10 +6,10 @@ Pod::Spec.new do |s|
                        This module uses StoreKit 2 to check if a user is eligible
                        for introductory offers for given subscription product IDs.
                      DESC
-  s.homepage       = 'https://github.com/zentus/expo-introductory-offer-eligibility-checker'
+  s.homepage       = 'https://github.com/zentus/expo-intro-offer-eligibility'
   s.license        = { :type => 'MIT' }
   s.author         = { 'zentus' => 'zentus@cimantra.com' }
-  s.source         = { git: 'https://github.com/zentus/expo-introductory-offer-eligibility-checker' }
+  s.source         = { git: 'https://github.com/zentus/expo-intro-offer-eligibility' }
   s.requires_arc   = true
   s.weak_frameworks = 'StoreKit'
 

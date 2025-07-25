@@ -1,5 +1,5 @@
 {
-  "name": "@zentus/expo-introductory-offer-eligibility-checker",
+  "name": "@zentus/expo-intro-offer-eligibility",
   "version": "1.0.12",
   "description": "Checks eligibility for App Store Introductory Offers via Storekit 2",
   "main": "build/index.js",
@@ -26,19 +26,19 @@
   "keywords": [
     "react-native",
     "expo",
-    "expo-introductory-offer-eligibility-checker",
+    "expo-intro-offer-eligibility",
     "ExpoIntroductoryOfferEligibilityChecker"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zentus/expo-introductory-offer-eligibility-checker.git"
+    "url": "git+https://github.com/zentus/expo-intro-offer-eligibility.git"
   },
   "bugs": {
-    "url": "https://github.com/zentus/expo-introductory-offer-eligibility-checker/issues"
+    "url": "https://github.com/zentus/expo-intro-offer-eligibility/issues"
   },
   "author": "zentus <zentus@cimantra.com> (https://github.com/zentus)",
   "license": "MIT",
-  "homepage": "https://github.com/zentus/expo-introductory-offer-eligibility-checker#readme",
+  "homepage": "https://github.com/zentus/expo-intro-offer-eligibility#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/react": "^18.2.6",
